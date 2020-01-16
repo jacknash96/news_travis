@@ -1,4 +1,8 @@
 services:
   - docker
 script:
-  - docker image build -t jacknash96/imagetest .        
+  - docker image build -t jacknash96/imagetest .
+deploy:
+  provider: script
+  script: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && docker push jacknash96/imagetest
+   
